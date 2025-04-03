@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+let session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -19,6 +20,16 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Configuración de session
+app.use(session({
+  secret: 'dbmovies',
+  resave: false,
+  saveUninitialized: true
+}));
+
+//Middleware para verificar si el usuario está autenticado
+
+//Rutas
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
