@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <h1>Registrar Usuario</h1>
+    <form action="/users/create" method="post">
+      <input type="email" name="emailInput" id="" placeholder="Email" required />
+      <input type="text" name="nombreInput" id="" placeholder="Nombre" required />
+      <input type="text" name="apellidoInput" id="" placeholder="Apellido" required />
+      <input type="password" name="password" id="" placeholder="Contraseña" required />
+      <button type="submit">Guardar</button>
+    </form>
+  </body>
+</html>
